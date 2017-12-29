@@ -1,0 +1,32 @@
+<h1>Neuer Vorgang</h1>
+
+<%= form_with scope: :vorgang, url: vorgaenge_index_path, local: true do |form| %>
+
+<% if @vorgang.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@vorgang.errors.count, "error") %> verhindern das Speichern dieses Vorgangs:
+      </h2>
+      <ul>
+        <% @vorgang.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :referenz %><br>
+    <%= form.text_field :referenz %>
+  </p>
+
+  <p>
+    <%= form.label :angaben %><br>
+    <%= form.text_area :angaben %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Zurück', vorgaenge_index_path %>
+<% end %>

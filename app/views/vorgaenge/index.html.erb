@@ -1,0 +1,18 @@
+<h1>Vorgänge</h1>
+<%= link_to 'Neuer Vorgang', new_vorgaenge_path %>
+<table>
+  <tr>
+    <th>Referenz</th>
+    <th>Angaben</th>
+  </tr>
+
+  <% @vorgaenge.each do |vorgang| %>
+    <tr>
+      <td><%= vorgang.referenz %></td>
+      <td><%= vorgang.angaben %></td>
+      <td><%= link_to 'Anzeigen', vorgaenge_path(vorgang) %></td>
+      <td><%= link_to 'Bearbeiten', edit_vorgaenge_path(vorgang) %></td>
+
+    </tr>
+  <% end %>
+</table>
