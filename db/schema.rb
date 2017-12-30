@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228223152) do
+ActiveRecord::Schema.define(version: 20171230053631) do
 
-  create_table "vorgangs", force: :cascade do |t|
+  create_table "vorgaenge", force: :cascade do |t|
     t.string "referenz"
     t.text "angaben"
     t.datetime "created_at", null: false
