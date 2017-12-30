@@ -29,12 +29,18 @@ class VorgaengeController < ApplicationController
     @vorgang = Vorgang.new(vorgang_params)
 
       if @vorgang.save
-        redirect_to action: "show", id: @vorgang.id
+        redirect_to @vorgang
       else
         render 'new'
       end
     end
 
+    def destroy
+      @vorgang = Vorgang.find(params[:id])
+      @vorgang.destroy
+
+      redirect_to vorgaenge_path
+    end
     private
   def vorgang_params
     params.require(:vorgang).permit(:referenz, :angaben)

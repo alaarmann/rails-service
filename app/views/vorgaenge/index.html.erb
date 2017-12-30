@@ -12,6 +12,9 @@
       <td><%= vorgang.angaben %></td>
       <td><%= link_to 'Anzeigen', vorgang_path(vorgang) %></td>
       <td><%= link_to 'Bearbeiten', edit_vorgang_path(vorgang) %></td>
+      <td><%= link_to 'Löschen', vorgang_path(vorgang),
+              method: :delete,
+              data: { confirm: 'Sind Sie sicher?' } %></td>
 
     </tr>
   <% end %>
