@@ -7,3 +7,9 @@
   <strong>Inhalt:</strong>
   <%= nachricht.inhalt %>
 </p>
+
+<p>
+  <%= link_to 'Nachricht löschen', [nachricht.vorgang, nachricht],
+               method: :delete,
+               data: { confirm: 'Sind Sie sicher?' } %>
+</p>
