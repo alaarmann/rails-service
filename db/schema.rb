@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230053631) do
+ActiveRecord::Schema.define(version: 20171230061514) do
+
+  create_table "nachrichten", force: :cascade do |t|
+    t.string "sender"
+    t.text "inhalt"
+    t.integer "vorgang_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vorgang_id"], name: "index_nachrichten_on_vorgang_id"
+  end
 
   create_table "vorgaenge", force: :cascade do |t|
     t.string "referenz"

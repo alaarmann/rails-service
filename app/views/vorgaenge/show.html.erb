@@ -8,5 +8,32 @@
   <%= @vorgang.angaben %>
 </p>
 
+<h2>Nachrichten</h2>
+<% @vorgang.nachrichten.each do |nachricht| %>
+  <p>
+    <strong>Sender:</strong>
+    <%= nachricht.sender %>
+  </p>
+
+  <p>
+    <strong>Inhalt:</strong>
+    <%= nachricht.inhalt %>
+  </p>
+<% end %>
+
+<h2>Nachricht senden:</h2>
+<%= form_with(model: [ @vorgang, @vorgang.nachrichten.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :sender %><br>
+    <%= form.text_field :sender %>
+  </p>
+  <p>
+    <%= form.label :inhalt %><br>
+    <%= form.text_area :inhalt %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 <%= link_to 'Bearbeiten', edit_vorgang_path %>
 <%= link_to 'Zurück', vorgaenge_path %>

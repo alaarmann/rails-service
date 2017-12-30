@@ -17,4 +17,5 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'vorgang', 'vorgaenge'
+  inflect.irregular 'nachricht', 'nachrichten'
 end
