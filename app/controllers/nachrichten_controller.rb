@@ -1,5 +1,7 @@
 class NachrichtenController < ApplicationController
 
+  http_basic_authenticate_with name: "ala", password: "secret", only: :destroy
+  
   def create
     @vorgang = Vorgang.find(params[:vorgang_id])
     @nachricht = @vorgang.nachrichten.create(nachricht_params)

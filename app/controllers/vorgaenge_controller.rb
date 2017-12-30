@@ -1,4 +1,7 @@
 class VorgaengeController < ApplicationController
+
+  http_basic_authenticate_with name: "ala", password: "secret", except: [:index, :show]
+ 
   def index
     @vorgaenge = Vorgang.all
   end
